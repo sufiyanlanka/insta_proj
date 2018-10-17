@@ -1,0 +1,19 @@
+<table style="margin-top: 10px">
+		{%for i in profilepic %}
+		<form method="POST">{% csrf_token %}
+			<tr>
+				{% if i.username.username in u%}
+					<th><img style="border-radius: 30%;width: 40px" src="{{i.profilepic.url}}"></img></th>
+					<TH><a href="{{i.username.username}}">{{i.username.username}}:</a></TH>
+					{% if i.username.username in b%}
+						<TH><button style="margin-top: 10px" name="USERS" type="submit" value="{{i.username.username}}">UNFOLLOW</button></TH>
+					{% else %}
+						<TH><button style="margin-top: 10px" name="USERS" type="submit" value="{{i.username.username}}">FOLLOW</button></TH>
+					{% endif%}	
+				{% endif%}
+			</tr>
+		</form>
+		{%endfor%}
+</table>
+
+<a href="thf"><button  style="margin-top: 10px">profile</button></a>

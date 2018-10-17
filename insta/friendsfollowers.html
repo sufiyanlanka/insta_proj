@@ -1,0 +1,20 @@
+<table style="margin-top: 10px">
+	{%for i in profilepic %}
+	<form method="POST">{% csrf_token %}
+		<tr>
+			{% if i.username.username in friendsfollowerlist%}
+				<th><img style="border-radius: 30%;width: 40px" src="{{i.profilepic.url}}"></img></th>
+				<TH><a href="/accounts/profile/{{i.username.username}}">{{i.username.username}}:</a></TH>
+					{% if i.username.username in use %}
+						<h1></h1>
+					{% elif i.username.username in u%}
+						<TH><button style="margin-top: 10px" name="USERS" type="submit" value="{{i.username.username}}">UNFOLLOW</button></TH>
+					
+					{% else %}
+						<TH><button style="margin-top: 10px" name="USERS" type="submit" value="{{i.username.username}}">FOLLOW</button></TH>
+				{% endif %}
+			{% endif %}
+		</tr>
+	</form>
+	{% endfor %}	
+</table>

@@ -1,0 +1,10 @@
+
+	<h2>{{selecteduser}}</h2>
+	 {% for i in profilepic %}
+ 	<div style="margin-top: 10px"><img style="border-radius: 30%;width: 80px" src="{{i.profilepic.url}}"></img></div>
+ 	
+ 	<form method="POST">{% csrf_token %}
+		<h4><a href="followers/{{i.username.username}}">Followers</a>:{{followercount}}</h4>
+		<h4><a href="following/{{i.username.username}}">Following</a>:{{followingcount}}</h4>
+	</form>
+	{% endfor %}

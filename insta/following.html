@@ -1,0 +1,12 @@
+{% for i in profilepic %}
+<form  method="POST" >{% csrf_token %}
+	<table style="margin-top: 10px">
+		{% if i.username.username in followinglist%}
+		<tr><img style="border-radius: 30%;width: 40px" src="{{i.profilepic.url}}"></img></tr>
+		<tr><a href="{{i.username.username}}">{{i.username.username}}:</a></tr>
+		<tr><button name="user" type="submit" value="{{i.username.username}}" >unfolow</button></tr>
+		{% endif %}
+	</table>
+</form>
+{% endfor %}
+<a href="thf"><button  style="margin-top: 10px">profile</button></a>

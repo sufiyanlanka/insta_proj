@@ -1,0 +1,19 @@
+{% for i in post%}
+	{% if i.username.username in u %}
+		<h2><div style="margin-top: 10px">{{ i.username.username}}</div></h2>
+		<div><img style="border-radius: 30%;width: 200px" src="{{i.postpic.url}}"></img></div>
+		<form method="POST">{% csrf_token %}
+			<div><button name="likes" type="submit" value="{{request.user}}">like</button></div>
+		</form>
+		{{ i.posttime }}
+		<div>liked by:{{ i.likes.count}}</div>
+		
+		
+	{% endif %}
+
+{% endfor %}
+
+
+
+
+

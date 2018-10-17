@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+ <h2> {{ user.username }}</h2>
+  {% for i in profilepic %}
+
+
+ <div><img style="border-radius: 30%;width: 80px" src="{{i.profilepic.url}}"></img></div>
+ {% endfor %}
+ <div><a href=""> Edit profile </a> </div>
+
+<form action="users">{% csrf_token %}
+	<button style="width: 80px;margin-top: 10px" name="custo" type="submit">Search Users</button>
+</form>
+<h4><a href=""> Posts</a>:</h4>
+<h4><a href="followers"> followers </a>:{{followercount}}</h4>
+<h4><a href="following"> following </a>:{{ followingcount }}</h4>
+<a href="/logout">logout</a>
+{% endif %}
+{% endblock %}
